@@ -45,12 +45,15 @@ const styles = StyleSheet.create({
     fav_icon: {
         width: hs(20),
         height: vs(20),
-        resizeMode: 'contain'
+        resizeMode: 'contain',
     },
     arrowIcon: {
         width: hs(20),
         height: vs(20),
         resizeMode: 'contain'
+    },
+    styleKeywordsContainer: {
+        borderWidth: 1, borderRadius: 100, backgroundColor: '#F5F7FC', borderColor: '#F5F7FC'
     }
 });
 

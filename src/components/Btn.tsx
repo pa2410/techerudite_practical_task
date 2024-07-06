@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, Pressable, StyleProp, ViewStyle, TextStyle, PressableProps } from 'react-native'
 import { mpStyle, vs } from "../utils/styleUtils";
-import { colors } from "../utils/colors";
 import { fonts } from "../utils/fonts";
 
 interface Props {
@@ -43,7 +42,7 @@ const Btn: React.FC<Props & PressableProps> = ({
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: radius,
-                backgroundColor: colors.black,
+                backgroundColor: 'black',
                 flexDirection: 'row'
             }, btnStyle]}
             {...restProps}

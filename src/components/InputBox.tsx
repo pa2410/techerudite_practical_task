@@ -4,7 +4,6 @@ import { mpStyle, fs, screenWidth, vs } from "../utils/styleUtils";
 import Container from "./Container";
 import Label from "./Label";
 import { fonts } from "../utils/fonts";
-import { colors } from "../utils/colors";
 
 interface Props {
     placeholder: string,
@@ -65,7 +64,7 @@ const InputBox: React.FC<Props & TextInputProps> = ({
                         ...mpStyle({ ...mpInput }),
                         fontSize: textSize || 14,
                         fontFamily: fonts.regular,
-                        color: colors.black,
+                        color: 'black',
                         paddingVertical: 0
                     }, inputStyle]}
                     allowFontScaling={false}

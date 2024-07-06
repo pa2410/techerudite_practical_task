@@ -38,7 +38,9 @@ const EventLists = ({ item, index }: eventItemProps) => {
                         {
                             item?.keywords?.map((item: any, index: number) => {
                                 return (
-                                    <Label labelSize={12} key={index} style={styles.keywordsStyle}>{item}</Label>
+                                    <Container containerStyle={styles.styleKeywordsContainer} mpContainer={{ p: 5 }}>
+                                        <Label labelSize={12} key={index} style={styles.keywordsStyle}>{item}</Label>
+                                    </Container>
                                 )
                             })
                         }

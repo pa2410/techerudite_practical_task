@@ -12,6 +12,16 @@ const styles = StyleSheet.create({
     },
     headerTitle2: {
         fontFamily: fonts.medium, fontWeight: '400', color: '#0F0F0F40'
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    logoutStyleBtn: {
+        width: "100%",
+        backgroundColor: '#21D393',
+        borderRadius: 4,
     }
 });
 

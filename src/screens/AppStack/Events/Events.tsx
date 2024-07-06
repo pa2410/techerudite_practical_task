@@ -3,14 +3,19 @@ import Container from '../../../components/Container';
 import Label from '../../../components/Label';
 import { useNavigation } from '@react-navigation/native';
 import { vs } from '../../../utils/styleUtils';
-import { ActivityIndicator, FlatList } from 'react-native';
-import { useSelector } from 'react-redux';
+import { ActivityIndicator, Alert, FlatList } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import EventLists from '../../../listItems/EventLists/EventLists';
 import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { logout } from '../../../features/authSlice';
+import { AuthNavigator } from '../../../navigators/NavActionts';
+import Btn from '../../../components/Btn';
 
 const Events = () => {
 
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const [eventData, setEventData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -58,18 +63,43 @@ const Events = () => {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            await AsyncStorage.removeItem('token');
+            dispatch(logout());
+            navigation.dispatch(AuthNavigator);
+        } catch (error) {
+            Alert.alert('Error', 'Something went wrong. Please try again.');
+        }
+    };
+
     return (
         <Container containerStyle={{ flex: 1, backgroundColor: '#F2F2F2' }}>
-            <FlatList
-                data={eventData}
-                keyExtractor={(_, index) => index.toString()}
-                contentContainerStyle={{ paddingBottom: vs(20) }}
-                renderItem={({ item, index }) => {
-                    return <EventLists item={item} index={index}/>
-                }}
+            {isLoading ?
+                (
+                    <Container containerStyle={styles.loadingContainer}>
+                        <ActivityIndicator size={"large"} color={"green"} />
+                    </Container>
+                )
+                :
+                (
+                    <FlatList
+                        data={eventData}
+                        keyExtractor={(_, index) => index.toString()}
+                        contentContainerStyle={{ paddingBottom: vs(20) }}
+                        renderItem={({ item, index }) => {
+                            return <EventLists item={item} index={index} />
+                        }}
+                    />
+                )
+            }
+            <Btn
+                title='Logout'
+                btnHeight={45}
+                textColor='white'
+                onPress={handleLogout}
+                btnStyle={styles.logoutStyleBtn}
             />
-
-            {isLoading && <ActivityIndicator size={"large"} color={"green"} />}
         </Container>
     );
 };

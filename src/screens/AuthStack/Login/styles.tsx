@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     imgBg: {
         alignItems: 'center',
         width: "100%",
