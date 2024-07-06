@@ -90,6 +90,7 @@ const Events = () => {
                         renderItem={({ item, index }) => {
                             return <EventLists item={item} index={index} />
                         }}
+                        showsVerticalScrollIndicator={false}
                     />
                 )
             }

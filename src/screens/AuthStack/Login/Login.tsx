@@ -68,7 +68,7 @@ const Login = ({ navigation }) => {
                 )
                 :
                 (
-                    <ScrollView contentContainerStyle={{ paddingBottom: vs(20) }}>
+                    <ScrollView contentContainerStyle={{ paddingBottom: vs(20) }} showsVerticalScrollIndicator={false}>
                         <ImageBackground source={images.BGImg} style={styles.imgBg}>
                             <Label labelSize={40} style={styles.headerTitle}>Pliē</Label>
                             <Img
